@@ -1,0 +1,60 @@
+<settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0
+                      https://maven.apache.org/xsd/settings-1.0.0.xsd">
+
+  <servers>
+    <server>
+      <id>{{project}}-dev-release</id>
+      <username>{{username}}</username>
+      <password>{{passwordEncrypted}}</password>
+    </server>
+    <server>
+      <id>{{project}}-dev-snapshots</id>
+      <username>{{username}}</username>
+      <password>{{passwordEncrypted}}</password>
+    </server>
+  </servers>
+
+  <profiles>
+    <profile>
+      <repositories>
+        <repository>
+          <snapshots>
+            <enabled>false</enabled>
+          </snapshots>
+          <id>{{project}}-dev-release</id>
+          <name>libs-release</name>
+          <url>{{baseUrl}}/artifactory/libs-release</url>
+        </repository>
+        <repository>
+          <snapshots />
+          <id>{{project}}-dev-snapshots</id>
+          <name>libs-snapshot</name>
+          <url>{{baseUrl}}/artifactory/libs-snapshot</url>
+        </repository>
+      </repositories>
+      <pluginRepositories>
+        <pluginRepository>
+          <snapshots>
+            <enabled>false</enabled>
+          </snapshots>
+          <id>{{project}}-dev-release</id>
+          <name>libs-release</name>
+          <url>{{baseUrl}}/artifactory/libs-release</url>
+        </pluginRepository>
+        <pluginRepository>
+          <snapshots />
+          <id>{{project}}-dev-snapshots</id>
+          <name>libs-snapshot</name>
+          <url>{{baseUrl}}/artifactory/libs-snapshot</url>
+        </pluginRepository>
+      </pluginRepositories>
+      <id>{{project}}-artifactory</id>
+    </profile>
+  </profiles>
+
+  <activeProfiles>
+    <activeProfile>{{project}}-artifactory</activeProfile>
+  </activeProfiles>
+</settings>

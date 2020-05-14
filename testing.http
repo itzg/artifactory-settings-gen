@@ -1,0 +1,2 @@
+GET {{baseUrl}}/artifactory/api/security/encryptedPassword
+Authorization: Basic {{username}} {{password}}
